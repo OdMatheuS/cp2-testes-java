@@ -51,4 +51,18 @@ class CpdoisApplicationTests {
 		assertNotEquals(valorEsperado, resultado);
 	}
 
+	@Test
+	public void findMaxConsecutiveOnesSuccesso() {
+		int[] conjunto = { 1, 1, 0, 1, 1, 1 };
+		int resultado = cpController.findMaxConsecutiveOnes(conjunto);
+		assertEquals(3, resultado);
+	}
+
+	@Test
+	public void findMaxConsecutiveOnesExcessao() {
+		int[] conjunto = { 0, 0, 0, 0, 0 };
+		int resultado = cpController.findMaxConsecutiveOnes(conjunto);
+		assertNotEquals(1, resultado);
+	}
+
 }
