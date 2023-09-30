@@ -47,4 +47,19 @@ public class CheckpointController {
 		return sum;
 	}
 
+	@PostMapping("/max-consecutive-ones")
+	public int findMaxConsecutiveOnes(@RequestBody int[] nums) {
+		int maiorValorEncontrado = 0;
+		int contador = 0;
+		for (int i : nums) {
+			if (i == 1) {
+				contador++;
+			} else {
+				contador = 0;
+			}
+			maiorValorEncontrado = Math.max(maiorValorEncontrado, contador);
+		}
+		return maiorValorEncontrado;
+	}
+
 }
