@@ -37,10 +37,13 @@ class CpdoisApplicationTests {
 
 	@Test
 	public void testeFindSingleNumberSuccesso() {
-		int[] conjunto = { 1, 2, 3, 2, 1 };
-		int valorEsperado = 3;
-		int resultado = cpController.findSingleNumber(conjunto);
-		assertEquals(valorEsperado, resultado);
+		int[] primeiroConjunto = { 1, 2, 3, 2, 1 };
+		int primeiroResultado = cpController.findSingleNumber(primeiroConjunto);
+		assertEquals(3, primeiroResultado);
+
+		int[] segundoConjunto = { 3, 1, 3, 5, 1 };
+		int segundoResultado = cpController.findSingleNumber(segundoConjunto);
+		assertEquals(5, segundoResultado);
 	}
 
 	@Test
@@ -49,6 +52,10 @@ class CpdoisApplicationTests {
 		int valorEsperado = 4;
 		int resultado = cpController.findSingleNumber(conjunto);
 		assertNotEquals(valorEsperado, resultado);
+
+		int[] segundoConjunto = { 11, 22, 33, 5, 22 };
+		int segundoResultado = cpController.findSingleNumber(segundoConjunto);
+		assertNotEquals(22, segundoResultado);
 	}
 
 	@Test
@@ -56,6 +63,11 @@ class CpdoisApplicationTests {
 		int[] conjunto = { 1, 1, 0, 1, 1, 1 };
 		int resultado = cpController.findMaxConsecutiveOnes(conjunto);
 		assertEquals(3, resultado);
+
+		//cep top!! 
+		int[] segundoConjunto = { 0, 1, 1, 0, 1, 0, 1, 0 };
+		int segundoResultado = cpController.findMaxConsecutiveOnes(segundoConjunto);
+		assertEquals(2, segundoResultado);
 	}
 
 	@Test
