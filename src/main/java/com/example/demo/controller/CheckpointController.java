@@ -1,5 +1,8 @@
 package com.example.demo.controller;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,6 +31,20 @@ public class CheckpointController {
 		} catch (Exception e) {
 			return false;
 		}
+	}
+
+	@PostMapping("/single-number")
+	public int findSingleNumber(@RequestBody int[] nums) {
+		Set<Integer> set = new HashSet<>();
+		int sum = 0;
+		for (int num : nums) {
+			if (set.add(num)) {
+				sum += num;
+			} else {
+				sum -= num;
+			}
+		}
+		return sum;
 	}
 
 }
